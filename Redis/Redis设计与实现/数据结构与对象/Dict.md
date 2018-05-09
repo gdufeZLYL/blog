@@ -209,3 +209,26 @@ load_factor = ht[0].used / ht[0].size
 3. 在rehash进行期间,每次对字典执行添加、删除、查找或者更新操作时,程序除了执行指定的操作以外,还会顺带将ht[0]哈希表在rehashidx索引上的所有键值对rehash到ht[1],当rehash工作完成之后,程序将rehashidx属性的值增一.
 4. 随着字典操作的不断执行,最终在某个时间点上,ht[0]的所有键值对都会被rehash至ht[1],这时程序将rehashidx属性的值设为-1,表示rehash操作已完成.
 
+渐进式rehash的好处在于它采取分而治之的方式,将rehash键值对所需的计算工作均摊到对字典的每个添加、删除、查找和更新操作上,从而避免了集中式rehash而带来的庞大计算量.
+
+## 例子
+![准备开始rehash](https://github.com/gdufeZLYL/blog/blob/master/images/20180509082855.png)
+
+![rehash索引0上的键值对](https://github.com/gdufeZLYL/blog/blob/master/images/20180509083154.png)
+
+![rehash索引1上的键值对](https://github.com/gdufeZLYL/blog/blob/master/images/20180509083612.png)
+
+![rehash索引2上的键值对](https://github.com/gdufeZLYL/blog/blob/master/images/20180509083732.png)
+
+![rehash索引3上的键值对](https://github.com/gdufeZLYL/blog/blob/master/images/20180509083811.png)
+
+![rehash执行完毕](https://github.com/gdufeZLYL/blog/blob/master/images/20180509083955.png)
+
+## 渐进式rehash执行期间的哈希表操作
+> 因为在进行渐进式rehash的过程中,字典会同时使用ht[0]和ht[1]两个哈希表,所以在渐进式rehash进行期间,字典的删除(delete)、查找(find)、更新(update)等操作会在两个哈希表上进行.例如,要在字典里面查找一个键的话,程序会先在ht[0]里面进行查找,如果没找到的话,就会继续到ht[1]里面进行查找,诸如此类.另外,在渐进式rehash执行期间,新添加到字典的键值对一律会被保存到ht[1]里面,而ht[0]则不再进行任何添加操作,这一措施保证了ht[0]包含的键值对数量会只减不增,并随着rehash操作的执行而最终变成空表.
+
+# 字典API
+![字典的主要操作API](https://github.com/gdufeZLYL/blog/blob/master/images/20180509085651.png)
+
+![字典的主要操作API](https://github.com/gdufeZLYL/blog/blob/master/images/20180509085838.png)
+
