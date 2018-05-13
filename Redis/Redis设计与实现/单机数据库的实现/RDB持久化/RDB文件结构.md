@@ -124,12 +124,44 @@ ENCODING的值:
 ![一个包含四个元素的集合](https://github.com/gdufeZLYL/blog/blob/master/images/20180513114132.png)
 
 ## 哈希表对象
-如果T
+如果TYPE的值为REDIS_RDB_TYPE_HASH,那么value保存的就是一个REDIS_ENCODING_HT编码的集合对象,RDB文件保存这种对象的结构如图10-30所示:
+* hash_size记录了哈希表的大小,也即是这个哈希表保存了多少键值对,读入程序可以通过这个大小知道自己应该读入多少个键值对.
+* 以key_value_pair开头的部分代表哈希表中的键值对,键值对的键和值都是字符串对象,所以程序会以处理字符串对象的方式来保存和读入键值对.
 
+HT编码哈希表对象的保存结构:
+
+![HT编码哈希表对象的保存结构](https://github.com/gdufeZLYL/blog/blob/master/images/20180513114919.png)
+
+例子: 一个包含两个键值对的哈希表
+
+![一个包含两个键值对的哈希表](https://github.com/gdufeZLYL/blog/blob/master/images/20180513115040.png)
 
 ## 有序集合对象
+如果TYPE的值为REDIS_RDB_TYPE_ZSET,那么value保存的就是一个REDIS_ENCODING_SKIPLIST编码的有序集合对象,RDB文件保存这种对象的结构如图10-34所示:
+
+![SKIPLIST编码有序集合对象的保存结构](https://github.com/gdufeZLYL/blog/blob/master/images/20180513150532.png)
+
+分析:
+
+![分析](https://github.com/gdufeZLYL/blog/blob/master/images/20180513150706.png)
+
+例子: 一个带有两个元素的有序集合
+
+![一个带有两个元素的有序集合](https://github.com/gdufeZLYL/blog/blob/master/images/20180513150955.png)
 
 ## INTSET编码的集合
+如果TYPE的值为REDIS_RDB_TYPE_SET_INTSET,那么value保存的就是一个整数集合对象,RDB文件保存这种对象的方法是,先将整数集合转换为字符串对象,然后将这个字符串对象保存到RDB文件里面.
+
+如果程序在读入RDB文件的过程中,碰到由整数集合对象转换成的字符串对象,那么程序会根据TYPE值的指示,先读入字符串对象,将这个字符串对象转换成原来的整数集合对象.
 
 ## ZIPLIST编码的列表、哈希表或者有序集合
+如果TYPE的值为REDIS_RDB_TYPE_LIST_ZIPLIST、REDIS_RDB_TYPE_HASH_ZIPLIST或者REDIS_RDB_TYPE_ZSET_ZIPLIST,那么value保存的就是一个压缩列表对象,RDB文件保存这种对象的方法是:
+1. 将压缩列表转换成一个字符串对象.
+2. 将转换所得的字符串对象保存到RDB文件.
+
+如果程序在读入RDB文件的过程中,碰到由压缩列表对象转换成的字符串对象,那么程序会根据TYPE值的指示,执行以下操作:
+1. 读入字符串对象,并将它转换成原来的压缩列表对象.
+2. 根据TYPE的值,设置压缩列表对象的类型: 如果TYPE的值为REDIS_RDB_TYPE_LIST_ZIPLIST,那么压缩列表对象的类型为列表;如果TYPE的值为REDIS_RDB_TYPE_HASH_ZIPLIST,那么压缩列表对象的类型为哈希表;如果TYPE的值为REDIS_RDB_TYPE_ZSET_ZIPLIST,那么压缩列表对象的类型为有序集合.
+
+由于TYPE的存在,即使列表、哈希表和有序集合三种类型都使用压缩列表来保存,RDB读入程序也总可以将读入并转换之后得出的压缩列表设置成原来的类型.
 
