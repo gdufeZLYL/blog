@@ -191,3 +191,30 @@ struct redisServer {
 
 ![检查持久化操作的运行状态](https://github.com/gdufeZLYL/blog/blob/master/images/20180515231300.png)
 
+![检查持久化操作的运行状态](https://github.com/gdufeZLYL/blog/blob/master/images/20180515231615.png)
+
+# 将AOF缓冲区中的内容写入AOF文件
+
+![将AOF缓冲区中的内容写入AOF文件](https://github.com/gdufeZLYL/blog/blob/master/images/20180515232906.png)
+
+# 关闭异步客户端
+在这一步,服务器会关闭那些输出缓冲区大小超出限制的客户端,第13章对此有详细的说明.
+
+# 增加cronloops计数器的值
+服务器状态的cronloops属性记录了serverCron函数执行的次数:
+```c++
+struct redisServer {
+     // ...
+
+     // serverCron函数的运行次数计数器
+     // serverCron函数每执行一次,这个属性的值就增一
+     int cronloops;
+
+     // ...
+};
+```
+cronloops属性目前在服务器中的唯一作用,就是在复制模块中实现"每执行serverCron函数N次就执行一次指定代码"的功能,方法如以下伪代码所示:
+```python
+if cronloops % N == 0:
+    # 执行指定代码 ...
+```
