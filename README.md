@@ -1,4 +1,8 @@
-# 《个人资料收集》
+# 学习资料总结全纪录
+* 并发
+	* [Java并发](https://github.com/gdufeZLYL/blog/blob/master/README.md#Java并发)
+		* [volatile关键字和内存模型](https://github.com/gdufeZLYL/blog/blob/master/Java/JUC/volatile%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md)
+		* [线程安全和锁优化](https://github.com/gdufeZLYL/blog/blob/master/Java/JUC/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%92%8C%E9%94%81%E4%BC%98%E5%8C%96.md)
 * 中间件
 	* [ActiveMQ](https://github.com/gdufeZLYL/blog/blob/master/README.md#ActiveMQ)
 		* [消息队列之 ActiveMQ](https://juejin.im/post/5ad46f34518825651d08265c)
