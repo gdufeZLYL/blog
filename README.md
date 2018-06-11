@@ -12,7 +12,17 @@
 		* [Redis](https://github.com/gdufeZLYL/blog/blob/master/README.md#Redis)
 			* [Redis设计与实现摘抄](https://github.com/gdufeZLYL/blog/tree/master/Redis/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0)
 			* [如何优雅地用Redis实现分布式锁](https://mp.weixin.qq.com/s?__biz=MzAxNjM2MTk0Ng==&mid=2247484015&idx=1&sn=210322c6fdf2976f8f809d25b42031ec&chksm=9bf4b2daac833bcc0a2f66f61f17eef20ac47cb8d0005dd9dfa011a7558434e95621a1de1f36&mpshare=1&scene=1&srcid=0428ghtvhCXIjgcLhpjwzK5S#rd)
+* 构建工具
+	* [Maven](https://github.com/gdufeZLYL/blog/blob/master/README.md#Maven)
+		* [Maven教程](https://www.yiibai.com/maven/)
 * 后端开发工程师必备
 	* [Java工程师成神之路~（2018修订版）](http://www.hollischuang.com/archives/489)
 	* [Java开发必会的Linux命令](http://www.hollischuang.com/archives/800)
 	* [《后端架构师技术图谱》](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%9C%A8%E7%BA%BF%E7%94%B5%E5%AD%90%E4%B9%A6)
+* 计算机考研
+	* 经验贴
+		* [建议你放弃——17川大计算机考研与调剂经验](https://zhuanlan.zhihu.com/p/34290471)
+		* [2017华东师范大学 计算机技术（839） 初试复试 经验](http://www.cskaoyan.com/thread-642773-1-1.html)
+	* 论坛
+		* [王道论坛](http://www.cskaoyan.com/forum.php)
+
