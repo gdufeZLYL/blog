@@ -13,6 +13,9 @@
 		* [Redis](https://github.com/gdufeZLYL/blog/blob/master/README.md#Redis)
 			* [Redis设计与实现摘抄](https://github.com/gdufeZLYL/blog/tree/master/Redis/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0)
 			* [如何优雅地用Redis实现分布式锁](https://mp.weixin.qq.com/s?__biz=MzAxNjM2MTk0Ng==&mid=2247484015&idx=1&sn=210322c6fdf2976f8f809d25b42031ec&chksm=9bf4b2daac833bcc0a2f66f61f17eef20ac47cb8d0005dd9dfa011a7558434e95621a1de1f36&mpshare=1&scene=1&srcid=0428ghtvhCXIjgcLhpjwzK5S#rd)
+		* [MongoDB](https://github.com/gdufeZLYL/blog/blob/master/README.md#MongoDB)
+			* [MongoDB入门视频](https://www.imooc.com/learn/295)
+			* [MongoDB入门笔记](https://github.com/gdufeZLYL/blog/tree/master/MongoDB/%E5%85%A5%E9%97%A8)
 * 构建工具
 	* [Maven](https://github.com/gdufeZLYL/blog/blob/master/README.md#Maven)
 		* [Maven教程](https://www.yiibai.com/maven/)
