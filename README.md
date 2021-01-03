@@ -31,7 +31,6 @@
 	* 经验贴
 		* [建议你放弃——17川大计算机考研与调剂经验](https://zhuanlan.zhihu.com/p/34290471)
 		* [2017华东师范大学 计算机技术（839） 初试复试 经验](http://www.cskaoyan.com/thread-642773-1-1.html)
-		* [暨南大学考研经验分享](http://www.cskaoyan.com/thread-650783-1-1.html)
 	* 论坛
 		* [王道论坛](http://www.cskaoyan.com/forum.php)
 		* [硕士专业目录查询](http://yz.chsi.com.cn/zsml/zyfx_search.jsp)
